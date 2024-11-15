@@ -60,13 +60,11 @@ jobs:
         run: unzip release.zip
       
       - name: Azure Login
-        uses: Azure/login@v2.2.0
-            
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_DA9760D59AB24F3884DBF51C19D55566 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B0B9AC4787054B4797D860C1F4C1438F }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1A0722A6E42F4299A2BF3F6974F830DE }}
-          enable-AzPSSession: true
+      uses: azure/login@v2
+      
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        enable-AzPSSession: true
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
