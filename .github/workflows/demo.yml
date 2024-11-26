@@ -5,5 +5,5 @@ on: workflow_dispatch
       runs-on: ubuntu-latest
       steps:
         - name: Print to console
-          run: echo "Hello Git Actions!"
+          run: echo "Hello Git Actions"
           
